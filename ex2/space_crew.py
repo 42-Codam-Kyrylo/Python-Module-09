@@ -51,10 +51,10 @@ class SpaceMission(BaseModel):
                 [
                     crew_member
                     for crew_member in self.crew
-                    if crew_member.years_experience > 5
+                    if crew_member.years_experience >= 5
                 ]
             )
-            > len(self.crew) / 2
+            >= len(self.crew) / 2
         )
         if is_long_mission and not is_enough_experienced_crew:
             raise ValueError(
